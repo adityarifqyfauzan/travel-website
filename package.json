@@ -1,0 +1,15 @@
+{
+  "name": "travel-website",
+  "version": "1.0.0",
+  "description": "travel website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "npx tailwindcss -i ./src/directive.css -o ./dist/tailwind.css --watch"
+  },
+  "author": "Aditya Rifqy Fauzan",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}

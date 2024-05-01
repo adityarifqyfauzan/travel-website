@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- tailwind -->
+    <link rel="stylesheet" href="../dist/tailwind.css">
+    <!-- alpine -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav class="py-9 px-4" x-data="{ navOpen : false }">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <img src="../public/assets/logo.svg" alt="" class="order-1 sm:order-2">
+                <img @click="navOpen = !navOpen" src="../public/assets/toggle.svg" alt=""
+                    class="order-2 sm:order-1 lg:hidden lg:order-1">
+
+                <div class="order-2 hidden lg:block">
+                    <ul class="flex gap-16">
+                        <li class="text-grey font-Circular font-bold text-sm"><a href="">Home</a></li>
+                        <li class="text-grey font-Circular opacity-50 text-sm"><a href="">Discover</a></li>
+                        <li class="text-grey font-Circular opacity-50 text-sm"><a href="">Special Deals</a></li>
+                        <li class="text-grey font-Circular opacity-50 text-sm"><a href="">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="order-3 hidden sm:block">
+                    <button class="grow bg-white px-8 py-4 font-bold text-grey rounded-full text-xs">Login</button>
+                    <button class="grow bg-ungu px-8 py-4 font-bold text-white rounded-full text-xs">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="navOpen" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90" x-data="{open : false}"
+            class="fixed bottom-0 right-0 left-0 w-full p-4 border lg:hidden z-50 bg-white">
+            <ul class="flex justify-around">
+                <li>
+                    <button class="flex justify-center flex-col items-center text-base gap-1 text-ungu">
+                        <ion-icon name="home-outline" class="text-2xl"></ion-icon>
+                        <span class="text-ungu text-base font-bold">Home</span>
+                    </button>
+                </li>
+                <li>
+                    <button class=" flex justify-center flex-col items-center text-base gap-1">
+                        <ion-icon name="compass-outline" class="text-2xl text-grey opacity-50"></ion-icon>
+                        <span class="text-grey opacity-50 text-base font-normal">Discover</span>
+                    </button>
+                </li>
+                <li>
+                    <button class=" flex justify-center flex-col items-center text-base gap-1">
+                        <ion-icon name="sparkles-outline" class="text-2xl text-grey opacity-50"></ion-icon>
+                        <span class="text-grey opacity-50 text-base font-normal">Special</span>
+                    </button>
+                </li>
+                <li>
+                    <button class=" flex justify-center flex-col items-center text-base gap-1">
+                        <ion-icon name="megaphone-outline" class="text-2xl text-grey opacity-50"></ion-icon>
+                        <span class="text-grey opacity-50 text-base font-normal">Contact</span>
+                    </button>
+                </li>
+                <li>
+                    <button @click="open = !open" class=" flex justify-center flex-col items-center text-base gap-1">
+                        <ion-icon name="menu-outline" class="text-2xl text-grey opacity-50"></ion-icon>
+                        <span class="text-grey opacity-50 text-base font-normal">More</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div x-show="open" x-show="open" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-90"
+                class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 w-3/4 lg:hidden">
+                <button class="grow bg-white px-8 py-4 font-bold text-grey rounded-full text-xs">Login</button>
+                <button class="grow bg-ungu px-8 py-4 font-bold text-white rounded-full text-xs">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section>
+        <div class="container px-4 py-4 mx-auto lg:py-16">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12 lg:col-span-4 order-2 lg:order-1 leading-tight">
+                    <div>
+                        <button class="px-8 py-4 bg-white text-pink flex gap-2 items-center font-bold text-sm drop-shadow-sm-shadow rounded-full mx-auto lg:mx-0">
+                            Explore the world!
+                            <img src="../public/assets/icons/work.svg" alt="">
+                        </button>
+
+                        <h1 class="mt-4 mb-6 font-bold text-[40px] text-gre text-center md:text-[56px] md:mb-[43px] md:mt-[43px] lg:text-[69px] lg:text-start">
+                            Travel <span class="text-pink">top destination</span> of the world
+                        </h1>
+
+                        <p class="mb-8 text-center text-grey opacity-50 text-base font-inter md:text-[18px] md:w-3/4 mx-auto md:mb-[43px] lg:w-full lg:text-start">
+                            We always make our customer happy by providing
+                            as many choices as possible
+                        </p>
+
+                        <div class="flex flex-col md:flex-row gap-6 justify-center lg:justify-start">
+                            <button class="py-6 px-8 bg-ungu text-white drop-shadow-lg-shadow rounded-full text-sm font-bold">Get Started</button>
+
+                            <button class="justify-center py-6 px-8 bg-white rounded-full text-sm font-bold border border-[#EEEEEE] flex items-center gap-2">
+                                <img src="../public/assets/icons/play.svg" alt="">
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-12 lg:col-span-8 order-1">
+                    <div>
+                        <img src="../public/assets/hero.png" alt="" class="w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+</body>
+
+</html>
+
+
